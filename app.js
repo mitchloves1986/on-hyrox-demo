@@ -24,18 +24,9 @@
   };
 
   var sheets = {
-    officer: {
-      kicker: "PRODUCT TEST",
-      title: "产品体验官",
-      action: "提交体验官申请",
-      html:
-        "<p>完赛选手试穿 Cloud X，把工位脚感交回来。</p>" +
-        "<ul><li>试穿指定 Cloud X</li><li>提交一场脚感记录</li></ul>",
-      kind: "recruit",
-    },
     elite: {
       kicker: "ELITE TEAM",
-      title: "精英战队",
+      title: "On昂跑精英战队",
       action: "提交战队申请",
       html:
         "<p>成绩达标选手代表昂跑出战。</p>" +
