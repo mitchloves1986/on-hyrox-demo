@@ -6,30 +6,31 @@
     document.documentElement.classList.add("in-mp");
   }
 
-  var ON_MINIPROGRAM_APPID = "";
-  var ON_MINIPROGRAM_PATH = "";
+  var ON_SHORT_LINK = "#小程序://On昂跑/DkogaZ0vkvCkRFh";
+  var ON_APP_ID = "";
+  var PRODUCTS = {
+    x5: {
+      name: "Cloud X 5",
+      path: "shopPages/productDetail/productDetail?styleSku=3WG3006&productId=3WG30065101&utm_channel=Paid_Social&utm_source=roxscan&utm_medium=product_tempopro&utm_time=202609",
+    },
+    tempo: {
+      name: "Cloud X Tempo",
+      path: "shopPages/productDetail/productDetail?styleSku=3WG3009&productId=3WG30095084&utm_channel=Paid_Social&utm_source=roxscan&utm_medium=product_tempo&utm_time=202609",
+    },
+    tempoPro: {
+      name: "Cloud X Tempo Pro",
+      path: "shopPages/productDetail/productDetail?styleSku=3MH1033&productId=3MH10335109&utm_channel=Paid_Social&utm_source=roxscan&utm_medium=product_tempopro&utm_time=202609",
+    },
+  };
 
   var sheets = {
-    miniProgram: {
-      kicker: "ON MINI PROGRAM",
-      title: "进入昂跑小程序",
-      action: "打开昂跑小程序",
-      html:
-        "<p>产品详情、鞋款与官方渠道走昂跑小程序。</p>" +
-        "<ul><li>正式环境将打开昂跑小程序（需提供 appId / 落地页路径）。</li>" +
-        "<li>当前是 Demo，用于确认跳转位置。</li></ul>",
-      kind: "miniprogram",
-    },
     officer: {
       kicker: "PRODUCT TEST",
       title: "产品体验官",
       action: "提交体验官申请",
       html:
-        "<p>面向本赛季完赛选手。穿上 Cloud X 上场，把工位脚感和跑段反馈交回来。</p>" +
-        "<ul><li>试穿指定 Cloud X 鞋款</li>" +
-        "<li>提交一场比赛的脚感记录</li>" +
-        "<li>可选：出镜或内容合作</li></ul>" +
-        "<p>正式报名表与名额由昂跑确认。Demo 只展示入口。</p>",
+        "<p>完赛选手试穿 Cloud X，把工位脚感交回来。</p>" +
+        "<ul><li>试穿指定 Cloud X</li><li>提交一场脚感记录</li></ul>",
       kind: "recruit",
     },
     elite: {
@@ -37,10 +38,8 @@
       title: "精英战队",
       action: "提交战队申请",
       html:
-        "<p>面向成绩达标选手。代表昂跑出战，获得战队身份与赛场露出。</p>" +
-        "<ul><li>成绩门槛、名额与任务以昂跑正式口径为准</li>" +
-        "<li>完赛露出、装备支持在入选后通知</li></ul>" +
-        "<p>正式报名表与审核在入口接通后进行。Demo 只展示入口。</p>",
+        "<p>成绩达标选手代表昂跑出战。</p>" +
+        "<ul><li>门槛与名额以正式口径为准</li></ul>",
       kind: "recruit",
     },
   };
@@ -70,25 +69,36 @@
     current = null;
   }
 
-  function jumpToOnMiniProgram() {
-    action.textContent = ON_MINIPROGRAM_APPID
-      ? "正在打开昂跑小程序…"
-      : "Demo：待接入昂跑 appId";
+  function openOnProduct(key) {
+    var product = PRODUCTS[key];
+    if (!product) return;
+    var mp = window.wx && window.wx.miniProgram;
+    if (mp && typeof mp.navigateTo === "function") {
+      mp.navigateTo({
+        url:
+          "/pages/webview/on-shop?name=" +
+          encodeURIComponent(product.name) +
+          "&path=" +
+          encodeURIComponent(product.path) +
+          "&shortLink=" +
+          encodeURIComponent(ON_SHORT_LINK) +
+          "&appId=" +
+          encodeURIComponent(ON_APP_ID),
+      });
+      return;
+    }
+    kicker.textContent = "ON";
+    title.textContent = "即刻选购 " + product.name;
+    body.innerHTML = "<p>将打开昂跑小程序对应鞋款页。</p>";
+    action.textContent = "知道了";
+    current = { kind: "info" };
+    mask.hidden = false;
+    mask.classList.remove("hidden");
   }
 
-  document.getElementById("openOnMiniProgram").addEventListener("click", function () {
-    openSheet("miniProgram");
-  });
-
-  document.querySelectorAll(".product-card").forEach(function (card) {
-    card.addEventListener("click", function () {
-      openSheet("miniProgram");
-    });
-    card.addEventListener("keydown", function (event) {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        openSheet("miniProgram");
-      }
+  document.querySelectorAll("[data-product]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      openOnProduct(el.getAttribute("data-product"));
     });
   });
 
@@ -102,13 +112,5 @@
   mask.addEventListener("click", function (event) {
     if (event.target === mask) closeSheet();
   });
-
-  action.addEventListener("click", function () {
-    if (!current) return;
-    if (current.kind === "miniprogram") {
-      jumpToOnMiniProgram();
-      return;
-    }
-    action.textContent = "Demo：报名入口已记录位置";
-  });
+  action.addEventListener("click", closeSheet);
 })();
