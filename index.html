@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#000000" />
+  <meta name="theme-color" content="#ffffff" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <title>Cloud X</title>
-  <link rel="stylesheet" href="styles.css?v=2026090405" />
+  <link rel="stylesheet" href="styles.css?v=2026090408" />
 </head>
 <body>
   <div class="stage">
@@ -21,73 +21,80 @@
       </div>
 
       <header class="hero">
-        <img class="hero-photo" src="assets/hero.webp" alt="" />
-        <div class="hero-shade"></div>
+        <video
+          class="hero-media"
+          autoplay
+          muted
+          loop
+          playsinline
+          webkit-playsinline
+          poster="assets/hero.webp?v=2026090408"
+        >
+          <source src="assets/hero.mp4?v=2026090408" type="video/mp4" />
+        </video>
+        <img class="hero-mark" src="assets/on-mark.svg" alt="On" />
       </header>
 
       <section class="family">
-        <h1>Cloud X 系列<br />综合训练鞋履家族</h1>
+        <h1>Cloud X 系列</h1>
+        <p>综合训练鞋履家族</p>
         <div class="family-grid">
           <button type="button" class="family-item" data-product="x5">
             <img src="assets/cloud-x-5.webp" alt="Cloud X 5" />
             <strong>Cloud X 5</strong>
-            <span>日常综合训练</span>
           </button>
           <button type="button" class="family-item" data-product="tempo">
             <img src="assets/cloud-x-tempo.webp" alt="Cloud X Tempo" />
             <strong>Cloud X Tempo</strong>
-            <span>专项进阶综训</span>
           </button>
           <button type="button" class="family-item" data-product="tempoPro">
             <img src="assets/cloud-x-tempo-pro.webp" alt="Cloud X Tempo Pro" />
             <strong>Cloud X Tempo Pro</strong>
-            <span>混合体能赛</span>
           </button>
         </div>
       </section>
 
       <article class="chapter">
-        <img class="chapter-photo" src="assets/cloud-x-5.webp" alt="Cloud X 5" />
+        <h2>Cloud X 5</h2>
+        <div class="billboard">
+          <img src="assets/x5-scene.webp" alt="Cloud X 5" />
+          <button type="button" class="shop-pill" data-product="x5">即刻选购</button>
+        </div>
         <div class="chapter-copy">
-          <h2>Cloud X 5</h2>
-          <p>灵活轻量，稳着力量训练。</p>
-          <ul>
-            <li>日常综合训练</li>
-            <li>Helion™ 泡棉 · 低帮轻量</li>
-          </ul>
-          <button type="button" class="buy-btn" data-product="x5">即刻选购</button>
+          <p>灵活灵动，精简设计不减支撑</p>
+          <p>低帮轻量，随身带随时练<br />舒适入脚，力量训练更稳</p>
+          <p>环保中底，每步为地球减负</p>
         </div>
       </article>
 
       <article class="chapter">
-        <img class="chapter-photo" src="assets/cloud-x-tempo.webp" alt="Cloud X Tempo" />
+        <h2>Cloud X Tempo</h2>
+        <div class="billboard">
+          <img src="assets/tempo-scene.webp" alt="Cloud X Tempo" />
+          <button type="button" class="shop-pill" data-product="tempo">即刻选购</button>
+        </div>
         <div class="chapter-copy">
-          <h2>Cloud X Tempo</h2>
-          <p>进阶综训，跟上课上的节奏。</p>
-          <ul>
-            <li>高强度有氧 / 室内跑</li>
-            <li>双密度 Helion™ · 高堆叠</li>
-          </ul>
-          <button type="button" class="buy-btn" data-product="tempo">即刻选购</button>
+          <p>柔软入脚，穿上就能开练</p>
+          <p>透气有型，轻松撑起训练节奏<br />平稳缓震，动态训练也稳定在线</p>
+          <p>高堆叠缓震，灵活应对多元训练</p>
         </div>
       </article>
 
-      <article class="chapter chapter--dark">
-        <img class="chapter-hero" src="assets/hero.webp" alt="Cloud X Tempo Pro" />
+      <article class="chapter">
+        <h2>Cloud X Tempo Pro</h2>
+        <div class="billboard">
+          <img src="assets/tempo-pro-scene.webp" alt="Cloud X Tempo Pro" />
+          <button type="button" class="shop-pill" data-product="tempoPro">即刻选购</button>
+        </div>
         <div class="chapter-copy">
-          <h2>Cloud X Tempo Pro</h2>
-          <p>为混合体能赛而生。</p>
-          <ul>
-            <li>与 Alexander Roncevic 共创</li>
-            <li>全掌碳纤维 · Missiongrip™</li>
-          </ul>
-          <button type="button" class="buy-btn buy-btn--light" data-product="tempoPro">即刻选购</button>
+          <p>为混合体能赛而生</p>
+          <p>与 Alexander Roncevic 共创</p>
+          <p>全掌碳纤维 Speedboard® · Missiongrip™</p>
         </div>
       </article>
 
       <section class="recruit">
-        <p class="recruit-kicker">上场</p>
-        <h2>两种方式。</h2>
+        <h2>上场</h2>
         <button type="button" class="entry" data-entry="officer">
           <span>产品体验官</span>
           <small>试穿 Cloud X，带回真实脚感</small>
@@ -110,6 +117,6 @@
     </section>
   </div>
 
-  <script src="app.js?v=2026090405"></script>
+  <script src="app.js?v=2026090408"></script>
 </body>
 </html>
