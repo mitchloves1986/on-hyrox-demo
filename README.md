@@ -1,6 +1,6 @@
-# 昂跑 × Roxscan 承接页 Demo
+# 昂跑 Cloud X 承接页 Demo
 
-给品牌看的结构稿。用户从首页弹窗或排行榜 Banner 点进来，直接进入本页。
+用户从首页弹窗或排行榜 Banner 点进来，直接进入本页。
 
 在线预览：https://mitchloves1986.github.io/on-hyrox-demo/
 

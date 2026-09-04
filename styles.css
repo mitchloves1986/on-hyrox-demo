@@ -49,17 +49,101 @@ button {
   min-height: 100dvh;
 }
 
-.deck-note {
-  display: none;
-}
-
 .phone {
+  position: relative;
   width: min(100%, 430px);
   min-height: 100vh;
   min-height: 100dvh;
   margin: 0 auto;
   background: var(--void);
   overflow: hidden;
+}
+
+.mp-chrome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  color: var(--bone);
+}
+
+.mp-status {
+  display: flex;
+  align-items: flex-end;
+  height: 44px;
+  padding: 0 28px 6px;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+.mp-nav {
+  position: relative;
+  height: 44px;
+}
+
+.mp-back {
+  position: absolute;
+  left: 8px;
+  top: 0;
+  width: 44px;
+  height: 44px;
+  color: var(--bone);
+  font-size: 32px;
+  font-weight: 200;
+  line-height: 40px;
+  text-align: center;
+}
+
+.mp-title {
+  display: block;
+  padding: 0 88px;
+  overflow: hidden;
+  color: var(--bone);
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  line-height: 44px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mp-capsule {
+  position: absolute;
+  top: 7px;
+  right: 12px;
+  width: 87px;
+  height: 32px;
+  border: 1px solid rgba(243, 239, 230, 0.28);
+  border-radius: 16px;
+  background: rgba(5, 5, 5, 0.28);
+}
+
+.mp-capsule::before,
+.mp-capsule::after {
+  position: absolute;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  content: "";
+}
+
+.mp-capsule::before {
+  left: 14px;
+  box-shadow: inset 0 0 0 1.5px rgba(243, 239, 230, 0.85);
+}
+
+.mp-capsule::after {
+  right: 14px;
+  background: rgba(243, 239, 230, 0.9);
+  clip-path: circle(45% at 50% 50%);
+}
+
+.in-mp .mp-chrome {
+  display: none;
 }
 
 .hero {
@@ -94,28 +178,12 @@ button {
   z-index: 1;
 }
 
-.lockup {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: calc(var(--space) * 3);
-  color: var(--bone);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
 .on-word {
+  margin: 0 0 calc(var(--space) * 3);
   font-size: 22px;
-  letter-spacing: -0.06em;
   font-weight: 800;
-  text-transform: none;
-}
-
-.lockup-x {
-  opacity: 0.45;
-  letter-spacing: 0;
+  letter-spacing: -0.06em;
+  line-height: 1;
 }
 
 .hero-kicker {
@@ -403,15 +471,6 @@ button {
     flex-direction: column;
     align-items: center;
     padding: 28px 16px 40px;
-  }
-
-  .deck-note {
-    display: block;
-    width: min(100%, 430px);
-    margin: 0 0 14px;
-    color: rgba(243, 239, 230, 0.48);
-    font-size: 12px;
-    line-height: 1.55;
   }
 
   .phone {

@@ -1,4 +1,11 @@
 (function () {
+  if (
+    window.__wxjs_environment === "miniprogram"
+    || /miniProgram/i.test(navigator.userAgent || "")
+  ) {
+    document.documentElement.classList.add("in-mp");
+  }
+
   var ON_MINIPROGRAM_APPID = "";
   var ON_MINIPROGRAM_PATH = "";
 
@@ -8,9 +15,9 @@
       title: "进入昂跑小程序",
       action: "打开昂跑小程序",
       html:
-        "<p>产品详情、鞋款与官方渠道走昂跑自己的小程序，不在 Roxscan 福利中心里完成。</p>" +
-        "<ul><li>正式环境：Roxscan 打开昂跑小程序（需昂跑提供 appId / 落地页路径）。</li>" +
-        "<li>当前是 Demo，用于给品牌看跳转位置。</li></ul>",
+        "<p>产品详情、鞋款与官方渠道走昂跑小程序。</p>" +
+        "<ul><li>正式环境将打开昂跑小程序（需提供 appId / 落地页路径）。</li>" +
+        "<li>当前是 Demo，用于确认跳转位置。</li></ul>",
       kind: "miniprogram",
     },
     officer: {
