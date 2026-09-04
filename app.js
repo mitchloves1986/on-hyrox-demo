@@ -1,11 +1,4 @@
 (function () {
-  if (
-    window.__wxjs_environment === "miniprogram"
-    || /miniProgram/i.test(navigator.userAgent || "")
-  ) {
-    document.documentElement.classList.add("in-mp");
-  }
-
   var ON_SHORT_LINK = "#小程序://On昂跑/DkogaZ0vkvCkRFh";
   var ON_APP_ID = "";
   var PRODUCTS = {
