@@ -62,6 +62,55 @@ button {
   background: var(--paper);
 }
 
+.mp-chrome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  height: 44px;
+  color: #fff;
+}
+
+.mp-back {
+  position: absolute;
+  left: 8px;
+  top: 0;
+  width: 44px;
+  height: 44px;
+  font-size: 32px;
+  font-weight: 200;
+  line-height: 40px;
+  text-align: center;
+}
+
+.mp-title {
+  display: block;
+  padding: 0 96px 0 52px;
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 44px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mp-capsule {
+  position: absolute;
+  top: 7px;
+  right: 12px;
+  width: 87px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.in-mp .mp-chrome {
+  display: none;
+}
+
 .hero {
   position: relative;
   height: 100vh;
@@ -76,15 +125,6 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: center 20%;
-}
-
-.hero-mark {
-  position: absolute;
-  top: calc(14px + env(safe-area-inset-top));
-  left: 18px;
-  z-index: 2;
-  width: 52px;
-  color: #111;
 }
 
 .family {
